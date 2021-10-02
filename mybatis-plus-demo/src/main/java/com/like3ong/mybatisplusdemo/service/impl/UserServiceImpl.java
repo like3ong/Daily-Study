@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.like3ong.mybatisplusdemo.domain.User;
 import com.like3ong.mybatisplusdemo.service.UserService;
 import com.like3ong.mybatisplusdemo.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
@@ -29,9 +31,11 @@ import org.springframework.stereotype.Service;
 >>>>>>>>> Temporary merge branch 2
  */
 @Service
+@RestController
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 implements UserService{
-
+    @Autowired
+    private UserService userService;
 }
 
 
