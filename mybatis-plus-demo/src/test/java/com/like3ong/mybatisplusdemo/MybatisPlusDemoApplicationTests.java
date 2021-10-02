@@ -4,6 +4,7 @@ package com.like3ong.mybatisplusdemo;
 import com.like3ong.mybatisplusdemo.domain.User;
 import com.like3ong.mybatisplusdemo.mapper.UserMapper;
 
+import com.like3ong.mybatisplusdemo.service.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,15 +20,13 @@ import java.util.List;
 class MybatisPlusDemoApplicationTests {
 
     @Resource
-    private UserMapper userMapper;
+    private UserService userService;
     @Test
     @DisplayName("测试displayName注解1")
     public void testSelect(){
         System.out.println("测试查询-------------");
-        List<User> userList = userMapper.selectList(null);
-        Assertions.assertEquals(10,userList.size());
-        userList.forEach(System.out::println);
-
+        int userList = userService.list().size();
+        Assertions.assertEquals(12,userList);
     }
 
 }

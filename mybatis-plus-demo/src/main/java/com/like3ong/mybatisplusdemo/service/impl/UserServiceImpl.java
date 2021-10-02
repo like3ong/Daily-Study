@@ -37,11 +37,8 @@ import java.util.List;
 @RestController
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 implements UserService{
-    private final UserService userService;
-
-    public UserServiceImpl(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    private UserService userService;
     @GetMapping("/hi")
     public String sayHi(){
         List<User> userList = userService.list();
