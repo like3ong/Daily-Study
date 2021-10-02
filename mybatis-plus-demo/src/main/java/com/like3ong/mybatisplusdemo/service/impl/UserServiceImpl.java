@@ -6,7 +6,10 @@ import com.like3ong.mybatisplusdemo.service.UserService;
 import com.like3ong.mybatisplusdemo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  *
@@ -34,8 +37,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 implements UserService{
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserServiceImpl(UserService userService) {
+        this.userService = userService;
+    }
+    @GetMapping("/hi")
+    public String sayHi(){
+        List<User> userList = userService.list();
+        String s = userList.toString();
+        return s;
+    }
+
 }
 
 
