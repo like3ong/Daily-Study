@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
  *
  * @author 10587
  * 这是一个测试，测试1,bug分支
+ * 修复bug
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
