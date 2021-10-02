@@ -11,6 +11,22 @@ import org.springframework.stereotype.Service;
  * @author 10587
  * 这是一个测试，测试1,bug分支
  * 修复bug
+ *
+ *
+ * 修复第三个bug
+ * 修复另一个bug
+ * 修复bug1
+<<<<<<<<< Temporary merge branch 1
+<<<<<<<<< Temporary merge branch 1
+ * 修复另一个bug
+=========
+ * 修复bug1
+>>>>>>>>> Temporary merge branch 2
+=========
+ *
+ *
+ * 修复第三个bug
+>>>>>>>>> Temporary merge branch 2
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
