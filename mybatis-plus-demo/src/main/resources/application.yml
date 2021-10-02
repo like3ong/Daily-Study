@@ -4,3 +4,9 @@ spring:
     password: 123456
     url: jdbc:mysql://localhost:3306/mybatis_plus
     driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  level:
+    root: info
+#    org.springframework: trace
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss,SSS} [%t] [%c]-[%p] %m%n"
