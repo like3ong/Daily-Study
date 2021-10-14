@@ -1,0 +1,55 @@
+Index: mybatis-plus-demo/src/main/java/com/like3ong/mybatisplusdemo/service/impl/UserServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- mybatis-plus-demo/src/main/java/com/like3ong/mybatisplusdemo/service/impl/UserServiceImpl.java	(revision 8e2f0cf66da7564991d6bbeddb9a267c2f557dfc)
++++ mybatis-plus-demo/src/main/java/com/like3ong/mybatisplusdemo/service/impl/UserServiceImpl.java	(revision 1f479e9d1f6cc02c94c0d7dedd1e8404fbdb293f)
+@@ -37,11 +37,8 @@
+ @RestController
+ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
+ implements UserService{
+-    private final UserService userService;
+-
+-    public UserServiceImpl(UserService userService) {
+-        this.userService = userService;
+-    }
++    @Autowired
++    private UserService userService;
+     @GetMapping("/hi")
+     public String sayHi(){
+         List<User> userList = userService.list();
+Index: mybatis-plus-demo/src/test/java/com/like3ong/mybatisplusdemo/MybatisPlusDemoApplicationTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- mybatis-plus-demo/src/test/java/com/like3ong/mybatisplusdemo/MybatisPlusDemoApplicationTests.java	(revision 8e2f0cf66da7564991d6bbeddb9a267c2f557dfc)
++++ mybatis-plus-demo/src/test/java/com/like3ong/mybatisplusdemo/MybatisPlusDemoApplicationTests.java	(revision 1f479e9d1f6cc02c94c0d7dedd1e8404fbdb293f)
+@@ -4,6 +4,7 @@
+ import com.like3ong.mybatisplusdemo.domain.User;
+ import com.like3ong.mybatisplusdemo.mapper.UserMapper;
+ 
++import com.like3ong.mybatisplusdemo.service.UserService;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.DisplayName;
+ import org.junit.jupiter.api.Test;
+@@ -19,15 +20,13 @@
+ class MybatisPlusDemoApplicationTests {
+ 
+     @Resource
+-    private UserMapper userMapper;
++    private UserService userService;
+     @Test
+     @DisplayName("测试displayName注解1")
+     public void testSelect(){
+         //System.out.println("测试查询-------------");
+-        List<User> userList = userMapper.selectList(null);
+-        Assertions.assertEquals(10,userList.size());
+-        userList.forEach(System.out::println);
+-
++        int userList = userService.list().size();
++        Assertions.assertEquals(12,userList);
+     }
+ 
+ }

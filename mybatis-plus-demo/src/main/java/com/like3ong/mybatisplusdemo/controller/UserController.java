@@ -27,6 +27,10 @@ public class UserController {
         List<User> userList = userService.list();
         String s = userList.toString();
         System.out.println("ceshi");
+        System.out.println("fix 测试");
+        System.out.println("tijao ");
+        System.out.println("buding");
+        System.out.println("xiuhu 不定");
         return s;
 
     }
