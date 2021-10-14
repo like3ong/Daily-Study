@@ -17,17 +17,18 @@ import java.util.List;
  * @Date 2021/10/2 23:48
  **/
 @RestController
-public class UserContronller {
-    private static Logger log = LoggerFactory.getLogger(UserContronller.class);
+public class UserController {
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
     @GetMapping("/hi")
     public String sayHi(){
         log.info("查询user列表");
-        log.debug("查询user");
         List<User> userList = userService.list();
         String s = userList.toString();
+        System.out.println("ceshi");
         return s;
+
     }
 
     @RequestMapping("/user/{uid}")
