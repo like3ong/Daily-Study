@@ -14,6 +14,7 @@ import org.springframework.util.Assert;
 
 
 import javax.annotation.Resource;
+import java.time.Instant;
 import java.util.List;
 
 @SpringBootTest
@@ -54,4 +55,23 @@ class MybatisPlusDemoApplicationTests {
             }
         }
     }
+    @Test
+    public void test2(){
+        Instant now = Instant.now();
+        System.out.println(now.toString());
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
