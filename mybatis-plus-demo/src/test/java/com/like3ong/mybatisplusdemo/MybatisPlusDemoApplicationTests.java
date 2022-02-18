@@ -1,6 +1,8 @@
 package com.like3ong.mybatisplusdemo;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.like3ong.mybatisplusdemo.domain.User;
 import com.like3ong.mybatisplusdemo.mapper.UserMapper;
 
@@ -15,13 +17,18 @@ import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 class MybatisPlusDemoApplicationTests {
 
     @Resource
     private UserService userService;
+    private User user;
+
     @Test
     @DisplayName("测试displayName注解1")
     public void testSelect(){
@@ -59,6 +66,17 @@ class MybatisPlusDemoApplicationTests {
     public void test2(){
         Instant now = Instant.now();
         System.out.println(now.toString());
+        System.out.println(now.toEpochMilli());
+        Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
+        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(now, ZoneId.systemDefault());
+        System.out.println(zonedDateTime);
+
+
+    }
+    @Test
+    public void test3(){
+        boolean flag = false;
+
 
     }
 }
