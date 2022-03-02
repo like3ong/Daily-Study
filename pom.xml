@@ -11,6 +11,17 @@
 	<modules>
 		<module>code-specification</module>
 	</modules>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.5.0</version>
+		</dependency>
+	</dependencies>
 
 </project>

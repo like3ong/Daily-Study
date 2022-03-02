@@ -10,8 +10,8 @@ public class MainTest {
         // Person person = new Person();
         Person person1 = Person.createPerson();
         Person person = Person.createPerson();
-        System.out.println(person);
-        System.out.println(person1);
+        System.out.println(person.getName());
+        System.out.println(person1.getName());
 
     }
 }
